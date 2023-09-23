@@ -2,5 +2,22 @@
 *,
 *:before,
 *:after {
+  margin: 0;
+  padding: 3px;
   box-sizing: border-box;
 }
+
+nav ul li {
+  display: inline;
+  padding: 0 10px;
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  text-align: center;
+  padding: 15px;
+  background-color: rgb(36, 36, 39);
+  font-size: 20px;
+}
+

@@ -18,13 +18,16 @@ body {
   align-self: center;
   background-color: white;
   max-width: 800px;
+  margin: 0 auto;
+  border: 5px solid rgb(60, 230, 243);
+  border-radius: 5px;
 }
 
 
 header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin: 15px 0;
 }
 
 .siteName {
@@ -70,7 +73,7 @@ h1, h2, h3 {
   background-color: rgb(255, 255, 255, 0.9);
   
   line-height: 90%;
-  color: rgb(96, 221, 230);
+  color: rgb(60, 230, 243);
   grid-column: 1;
   width: fit-content;
   height: fit-content;
@@ -111,16 +114,22 @@ h1, h2, h3 {
 }
 
 .center {
+  display: grid;
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
+  background-color: rgb(60, 230, 243);
+}
+
+.center a {
+  text-align: center;
 }
 
 .sky-filled {
-  background-color: skyblue;
   height: 80px;
+  margin: 0 auto;
 }
 
-@media (width >= 800px) {
+@media (width >= 900px) {
   .responsive-two-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;

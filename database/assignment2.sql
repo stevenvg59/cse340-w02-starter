@@ -66,4 +66,4 @@ UPDATE public.inventory
 	  '/images/vehicles/'
     );
 
--- END --
+--- END ---

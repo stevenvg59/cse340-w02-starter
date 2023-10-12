@@ -24,11 +24,10 @@ app.set("layout", "./layouts/layout") // not at views root
  *************************/
 // Index route
 app.get("/", baseController.buildHome)
-
 // app.get("/", function(req, res){
 //   res.render("index", {title: "Home"})
 // })
-// app.use(static)
+app.use(static)
 
 /* ***********************
  * Local Server Information

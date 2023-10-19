@@ -37,8 +37,6 @@ app.use("/inv", inventoryRoute)
 const port = process.env.PORT
 const host = process.env.HOST
 
-console.log(port)
-
 /* ***********************
  * Log statement to confirm server operation
  *************************/

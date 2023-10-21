@@ -57,5 +57,52 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+/* *****************************************
+* Build the single vehicle details view HTML
+* ****************************************** */
+Util.buildVehicleDetailView = async function(data) {
+  let display
+  console.log(data.length)
+  if (data.length > 0){
+   display = '<div id="single-vehicle-display">'
+
+   display += '<h1>'
+   display += data[0].inv_year + " " + data[0].inv_make + " " + data[0].inv_model
+   display += '</h1>'
+
+   display += '<div>'
+   display += '<img src="' + data[0].inv_image
+   + '"alt="Image of ' + data[0].inv_make + ' ' + data[0].inv_model
+   + ' on CSE Motors" />'
+
+   display += '<h2>'
+   display += data[0].inv_make + " " + data[0].inv_model + " Details"
+   display += '</h2>'
+
+   display += '<h3>'
+   display += 'Price: $' + data[0].inv_price
+   display += '</h3>'
+
+   display += '<h3>'
+   display += 'Description: ' + data[0].inv_description
+   display += '</h3>'
+
+   display += '<h3>'
+   display += 'Color: ' + data[0].inv_color
+   display += '</h3>'
+
+   display += '<h3>'
+   display += 'Miles: ' + data[0].inv_miles
+   display += '</h3>'
+
+   display += '</div>'
+   display += '</div>'
+
+  } else {
+   display += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+  }
+  return display
+}
+
 
 module.exports = Util

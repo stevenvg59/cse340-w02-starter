@@ -130,7 +130,7 @@ h1, h2, h3 {
 
 #inv-display {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
   justify-content: center;
   list-style-type: none;
@@ -194,5 +194,16 @@ h1, h2, h3 {
   .delorean-upgrades {
     grid-column: 1/span 1;
     grid-row: 1/span 1;
+  }
+}
+
+@media (width <= 600px) {
+  #inv-display {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (width > 600px) {
+  #inv-display {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

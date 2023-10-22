@@ -64,37 +64,39 @@ Util.buildVehicleDetailView = async function(data) {
   let display
   console.log(data.length)
   if (data.length > 0){
-   display = '<div id="single-vehicle-display">'
+   display = '<div id="single-vehicle">'
 
    display += '<h1>'
    display += data[0].inv_year + " " + data[0].inv_make + " " + data[0].inv_model
    display += '</h1>'
 
-   display += '<div>'
+   display += '<div id="single-vehicle-grid-display">'
    display += '<img src="' + data[0].inv_image
    + '"alt="Image of ' + data[0].inv_make + ' ' + data[0].inv_model
    + ' on CSE Motors" />'
 
+   display += '<div id="details-right">'
    display += '<h2>'
    display += data[0].inv_make + " " + data[0].inv_model + " Details"
    display += '</h2>'
 
-   display += '<h3>'
+   display += '<h2>'
    display += 'Price: $' + data[0].inv_price
-   display += '</h3>'
+   display += '</h2>'
 
-   display += '<h3>'
-   display += 'Description: ' + data[0].inv_description
-   display += '</h3>'
+   display += '<h2>'
+   display += 'Description: <span class="unbold-description">' + data[0].inv_description
+   display += '</span></h2>'
 
-   display += '<h3>'
-   display += 'Color: ' + data[0].inv_color
-   display += '</h3>'
+   display += '<h2>'
+   display += 'Color: <span class="unbold-description">' + data[0].inv_color
+   display += '</span></h2>'
 
-   display += '<h3>'
-   display += 'Miles: ' + data[0].inv_miles
-   display += '</h3>'
+   display += '<h2>'
+   display += 'Miles: <span class="unbold-description">' + data[0].inv_miles
+   display += '</span></h2>'
 
+   display += '</div>'
    display += '</div>'
    display += '</div>'
 

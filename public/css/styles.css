@@ -21,7 +21,6 @@ body {
   border-radius: 5px;
 }
 
-
 header {
   display: flex;
   justify-content: space-between;
@@ -51,6 +50,19 @@ nav ul li {
 
 a {
   text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  color: rgb(60, 230, 243)
+}
+
+.delorean-upgrades a:hover {
+  color: red;
 }
 
 h1, h2, h3 {
@@ -94,8 +106,6 @@ h1, h2, h3 {
   position: static;
 }
 
-
-
 .delorean-reviews {
   margin-bottom: 20px;
   line-height: 1.5;
@@ -126,7 +136,6 @@ h1, h2, h3 {
   height: 80px;
   margin: 0 auto;
 }
-
 
 #inv-display {
   display: grid;
@@ -199,7 +208,7 @@ h1, h2, h3 {
 }
 
 
-
+/* RESPONSIVE */
 @media (width >= 900px) {
   .responsive-two-columns {
     display: grid;
@@ -222,6 +231,10 @@ h1, h2, h3 {
 
   #single-vehicle-grid-display {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  #details-right {
+    margin-top: -20px;
   }
 }
 

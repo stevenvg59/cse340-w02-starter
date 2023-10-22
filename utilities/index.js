@@ -36,8 +36,8 @@ Util.buildClassificationGrid = async function(data){
       grid += '<a href="../../inv/detail/' + vehicle.inv_id
       + '" title="View ' + vehicle.inv_make + ' ' + vehicle.inv_model
       + ' details"><img src="' + vehicle.inv_thumbnail
-      + '"alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model
-      + ' on CSE Motors" /></a>'
+      + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model
+      + ' on CSE Motors"/></a>'
       grid += '<div class="namePrice">'
       grid += '<hr />'
       grid += '<h2>'
@@ -62,7 +62,13 @@ Util.buildClassificationGrid = async function(data){
 * ****************************************** */
 Util.buildVehicleDetailView = async function(data) {
   let display
-  console.log(data.length)
+
+  let price =  parseInt(data[0].inv_price)
+  let fprice = price.toLocaleString("en", {useGrouping:true})
+
+  let miles = data[0].inv_miles
+  let fmiles = miles.toLocaleString("en", {useGrouping:true})
+
   if (data.length > 0){
    display = '<div id="single-vehicle">'
 
@@ -72,8 +78,8 @@ Util.buildVehicleDetailView = async function(data) {
 
    display += '<div id="single-vehicle-grid-display">'
    display += '<img src="' + data[0].inv_image
-   + '"alt="Image of ' + data[0].inv_make + ' ' + data[0].inv_model
-   + ' on CSE Motors" />'
+   + '" alt="Image of ' + data[0].inv_make + ' ' + data[0].inv_model
+   + ' on CSE Motors"/>'
 
    display += '<div id="details-right">'
    display += '<h2>'
@@ -81,7 +87,7 @@ Util.buildVehicleDetailView = async function(data) {
    display += '</h2>'
 
    display += '<h2>'
-   display += 'Price: $' + data[0].inv_price
+   display += 'Price: $' + fprice
    display += '</h2>'
 
    display += '<h2>'
@@ -93,7 +99,7 @@ Util.buildVehicleDetailView = async function(data) {
    display += '</span></h2>'
 
    display += '<h2>'
-   display += 'Miles: <span class="unbold-description">' + data[0].inv_miles
+   display += 'Miles: <span class="unbold-description">' + fmiles
    display += '</span></h2>'
 
    display += '</div>'

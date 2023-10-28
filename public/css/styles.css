@@ -211,6 +211,12 @@ h1, h2, h3 {
   font-weight: normal;
 }
 
+.notice li {
+  color: red;
+  font-style: italic;
+  display: inherit;
+}
+
 
 /* RESPONSIVE */
 @media (width >= 900px) {

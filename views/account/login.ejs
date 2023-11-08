@@ -1,0 +1,26 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<div class="container">
+    <div class="form">
+        <form action="#" method="post">
+            <label for="">Email Address:</label>
+            <input type="text" name="" id="">
+            <label for="">Password</label>
+            <input type="text" name="" id="">
+            <p>Passwords must be minimun of 12 characters and include 1 capital letter, 1 number
+                and 1 special character.
+            </p>
+            <input type="button" value="Show Password">
+            <input type="button" value="Login">
+        </form>
+        
+    </div>
+    <div class="signup">
+        <span>No account?<a ref="#">Sign-up</a></span>
+    </div>
+
+</div>

@@ -212,7 +212,7 @@ h1, h2, h3 {
 }
 
 .notice li {
-  color: red;
+  color: #000;
   font-style: italic;
   display: inherit;
 }
@@ -307,3 +307,13 @@ form input {
   color: #fff;
   display: block;
 }
+
+.cursive {
+  font-style: italic;
+}
+
+
+input:required:invalid, input:focus:invalid {
+  /* insert your own styles for invalid form input */
+  color: red;
+ }

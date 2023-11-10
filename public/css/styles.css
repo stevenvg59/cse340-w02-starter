@@ -258,3 +258,52 @@ h1, h2, h3 {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+/* STYLING LOGIN VIEW */
+
+.login-container {
+  border: 1px solid black;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(60, 230, 243);
+}
+
+form {
+  border: 1px solid white;
+  max-width: 480px;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+form label, form input, form button {
+  display: block;
+  padding: 5px;
+  margin: 3px;
+}
+
+form input {
+  width: 400px;
+}
+
+.signup span {
+  display: block;
+  text-align: center;
+}
+
+.signup a:hover {
+  color: #fff;
+} 
+
+.showPass {
+  border: 1px solid black;
+  border-radius: 30px;
+  width: fit-content;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #333;
+  color: #fff;
+  display: block;
+}

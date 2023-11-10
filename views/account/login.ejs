@@ -4,18 +4,18 @@
     res.redirect('/')
 } %>
 
-<div class="container">
+<div class="login-container">
     <div class="form">
         <form action="#" method="post">
-            <label for="">Email Address:</label>
-            <input type="text" name="" id="">
-            <label for="">Password</label>
-            <input type="text" name="" id="">
+            <label for="email">Email Address:</label>
+            <input type="text" name="email" id="email">
+            <label for="password">Password</label>
+            <input type="text" name="password" id="password">
             <p>Passwords must be minimun of 12 characters and include 1 capital letter, 1 number
                 and 1 special character.
             </p>
-            <input type="button" value="Show Password">
-            <input type="button" value="Login">
+            <a class="showPass">Show Password</a>
+            <button>Login</button>
         </form>
         
     </div>

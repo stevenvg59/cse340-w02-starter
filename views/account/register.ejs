@@ -6,6 +6,13 @@
 
 <!-- This is ready for flash messages -->
 <%- messages() %>
+<% if (errors) { %>
+    <ul class="notice">
+    <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+    <%  }) %>
+    </ul>
+<% } %>
 
 <div class="login-container">
     <p class="cursive">All fields are required</p>

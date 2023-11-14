@@ -212,7 +212,7 @@ h1, h2, h3 {
 }
 
 .notice li {
-  color: #000;
+  color: #ff0000;
   font-style: italic;
   display: inherit;
 }

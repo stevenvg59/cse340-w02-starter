@@ -68,24 +68,35 @@ async function buildHomepage(req, res, next) {
   const { account_email, account_password } = req.body
   const loginResult = await accountModel.checkPasswordMatches(account_email, account_password)
 
-  if (loginResult.account_password == account_password){
-    req.flash(
-      "green",
-      `Welcome ${loginResult.account_firstname}. This is your homepage.`
-    )
-    res.render("index", {
-      title: "Home", 
-      nav,
-      errors: null,
-    })
+  if (accountModel.checkExistingEmail(account_email)){
+    if (loginResult.account_password == account_password){
+      req.flash(
+        "green",
+        `Welcome ${loginResult.account_firstname}. This is your homepage.`
+      )
+      res.render("index", {
+        title: "Home", 
+        nav,
+        errors: null,
+      })
+    } else {
+      req.flash("notice", "Sorry, login failed. Enter a valid password")
+      res.status(501).render("account/login", {
+        title: "Login",
+        nav,
+        errors: null,
+      })
+    }
   } else {
-    req.flash("notice", "Sorry, login failed. Enter a valid username and/or password")
-    res.status(501).render("account/login", {
-      title: "Login",
-      nav,
-      errors: null,
-    })
+    req.flash("notice", "Sorry, login failed. Enter a valid username")
+      res.status(501).render("account/login", {
+        title: "Login",
+        nav,
+        errors: null,
+      })
   }
+
+  
   
 }
 

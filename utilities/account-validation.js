@@ -12,13 +12,13 @@ validate.loginRules = () => {
       body("account_email")
         .trim()
         .isEmail()
-        .normalizeEmail(),
-        
-        
-      
-      body("account_password")
-        .trim()
-        
+        .normalizeEmail()
+        .custom(async (account_email) => {
+          const emailExists = await accountModel.checkExistingEmail(account_email)
+          if (!emailExists){
+            throw new Error("Invalid email. Please try again.")
+          }
+        }),
         
     ]
 }

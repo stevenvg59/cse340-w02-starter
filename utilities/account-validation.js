@@ -4,9 +4,30 @@ const validate = {}
 const accountModel = require("../models/account-model")
 
 /*  **********************************
+ *  Login Validation Rules
+ * ********************************* */
+validate.loginRules = () => {
+    return [
+      // Email is required and it has to match email from db
+      body("account_email")
+        .trim()
+        .isEmail()
+        .normalizeEmail(),
+        
+        
+      
+      body("account_password")
+        .trim()
+        
+        
+    ]
+}
+
+
+/*  **********************************
  *  Registration Data Validation Rules
  * ********************************* */
-validate.registationRules = () => {
+validate.registrationRules = () => {
     return [
       // firstname is required and must be string
       body("account_firstname")

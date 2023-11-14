@@ -217,6 +217,12 @@ h1, h2, h3 {
   display: inherit;
 }
 
+.green {
+  color: #2d761f;
+  font-style: italic;
+  display: inherit;
+}
+
 
 /* RESPONSIVE */
 @media (width >= 900px) {

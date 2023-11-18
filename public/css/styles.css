@@ -74,7 +74,7 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
-.welcome {
+.welcome, main {
   margin-top: 15px;
 }
 
@@ -322,4 +322,14 @@ form input {
 input:required:invalid, input:focus:invalid {
   /* insert your own styles for invalid form input */
   color: red;
- }
+}
+
+
+.management-links {
+  display: grid;
+  padding: 15px;
+}
+
+.management-links a{
+  margin-left: 20px;
+}

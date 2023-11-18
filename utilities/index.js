@@ -121,8 +121,8 @@ Util.buildManagementView = async function(){
 
   grid = '<div class="management-links">'
 
-  grid += '<a href="../../inv/newClassification">Add New Classification</a>'
-  grid += '<a href="../../inv/newVehicle">Add New Vehicle</a>' 
+  grid += '<a href="../../inv/addClassification">Add New Classification</a>'
+  grid += '<a href="../../inv/addVehicle">Add New Vehicle</a>' 
 
   grid += '</div>'
 

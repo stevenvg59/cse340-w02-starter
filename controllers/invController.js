@@ -41,12 +41,25 @@ invCont.buildVehicleDetailView = async function (req, res, next) {
  * ************************** */
 invCont.buildManagementView = async function (req, res, next) {
   let nav = await utilities.getNav()
-  const grid = await utilities.buildManagementView();
+  const grid = await utilities.buildManagementView()
   res.render("./inventory/management", {
     title: "Vehicle Management",
     nav,
     grid
   })
+}
+
+/* ***********************************
+ *  Build New Classification Form view
+ * *********************************** */
+invCont.buildNewClassification = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("./inventory/add-classification", {
+    title: "Add New Classification",
+    nav,
+    errors: null,
+  })
+
 }
 
 module.exports = invCont

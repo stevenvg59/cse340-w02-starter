@@ -267,7 +267,7 @@ h1, h2, h3 {
 
 /* STYLING LOGIN VIEW */
 
-.login-container {
+.login-container, .newClassificationForm{
   border: 1px solid black;
   max-width: 500px;
   margin: 20px auto;
@@ -332,4 +332,13 @@ input:required:invalid, input:focus:invalid {
 
 .management-links a{
   margin-left: 20px;
+}
+
+.bigger {
+  font-size: 1.3em;
+  text-transform: uppercase;
+}
+
+.instruction {
+  font-style: italic;
 }

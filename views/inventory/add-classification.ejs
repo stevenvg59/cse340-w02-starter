@@ -5,6 +5,29 @@
     res.redirect('/')
 } %>
 
-<% /* A Message Block */ %>
-<% messages() %>
+<!-- This is ready for flash messages -->
+<%- messages() %>
+<% if (errors) { %>
+    <ul class="notice">
+    <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+    <%  }) %>
+    </ul>
+<% } %>
 
+<!-- FORM ADDING NEW CLASSIFICATION -->
+<div class="newClassificationForm">
+    
+    <div class="form">
+        <label class="instruction">Field is required.</label>
+        <form id="newClassificationForm" action="#" method="post">
+            <label class="bigger">Classification Name</label>
+            <label class="instruction">Name must be alphabetic characters only.</label>
+            <input type="text" name="classification_name" id="classification_name" required>
+            <input type="submit" id="addClassification" value="Add Classification">
+        </form>
+        
+    </div>
+</div>
+
+<script src="/js/script.js"></script>

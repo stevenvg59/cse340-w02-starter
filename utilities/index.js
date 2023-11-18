@@ -129,6 +129,11 @@ Util.buildManagementView = async function(){
   return grid
 }
 
+/* *******************************************************
+* Build the form for Adding a New Classification view HTML
+* ******************************************************** */
+
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

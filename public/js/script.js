@@ -1,3 +1,19 @@
+const addBtn = document.getElementById("addClassification")
+addBtn.addEventListener("click", function() {
+    var userInput = document.getElementById("classification_name").value
+    var regExp = /^[a-zA-Z]+$/
+    console.log("Clicking");
+
+    if(userInput.match(regExp))
+    {
+        console.log("Valid input")
+    }
+    else {
+        console.log("Invalid input")
+    }
+});
+
+
 const pswBtn = document.querySelector("#pswBtn");
 pswBtn.addEventListener("click", function() {
     const pswInput = document.getElementById("password");
@@ -10,3 +26,4 @@ pswBtn.addEventListener("click", function() {
         pswBtn.innerHTML = "Show Password";
     }
 });
+

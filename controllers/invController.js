@@ -59,6 +59,36 @@ invCont.buildNewClassification = async function (req, res, next) {
     nav,
     errors: null,
   })
+}
+
+/* ***********************************
+ *  Registering a new classification
+ * *********************************** */
+invCont.registerClassification = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  const grid = await utilities.buildManagementView()
+  const { classification_name } = req.body
+  const regResult = await invModel.addClassification(classification_name)
+
+  if (regResult) {
+    req.flash(
+      "green",
+      `Congratulations, you\'ve added ${classification_name} as a new Classification!`
+    )
+    res.status(201).render("./inventory/management", {
+      title: "Vehicle Management",
+      nav,
+      grid,
+      errors: null,
+    })
+  } else {
+    req.flash("notice", "Sorry, the registration failed. Try again.")
+    res.status(501).render("./inventory/add-classification", {
+      title: "Add New Classification",
+      nav,
+      errors: null,
+    })
+  }
 
 }
 

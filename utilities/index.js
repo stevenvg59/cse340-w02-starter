@@ -115,7 +115,6 @@ Util.buildVehicleDetailView = async function(data) {
 /* *****************************************
 * Build the vehicle management view HTML
 * ****************************************** */
-
 Util.buildManagementView = async function(){
   let grid
 
@@ -128,11 +127,6 @@ Util.buildManagementView = async function(){
 
   return grid
 }
-
-/* *******************************************************
-* Build the form for Adding a New Classification view HTML
-* ******************************************************** */
-
 
 /* ****************************************
  * Middleware For Handling Errors

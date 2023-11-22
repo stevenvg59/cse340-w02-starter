@@ -16,4 +16,10 @@ router.get("/", utilities.handleErrors(invController.buildManagementView));
 // Route for adding a new classification
 router.get("/addClassification", utilities.handleErrors(invController.buildNewClassification));
 
+//Registering process
+router.post(
+    "/addClassification",
+    utilities.handleErrors(invController.registerClassification)
+);
+
 module.exports = router;

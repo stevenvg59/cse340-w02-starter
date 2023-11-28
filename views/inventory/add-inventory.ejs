@@ -16,16 +16,16 @@
 <% } %>
 
 <!-- FORM ADDING NEW VEHICLE -->
-<div class="newInventoryForm">
+<!-- <div class="newInventoryForm">
     
     <div class="form">
         <label class="instruction">All fields are required.</label>
         <form id="newInventoryForm" action="/inv/addInventory" method="post">
-            <label class="bigger">Classification</label>
+            <label class="bigger" for="classification">Classification</label>
 
             <select id="classification" name="classification">
-                <option value=""></option>
-                <option value=""></option>
+                <option value="One">One</option>
+                <option value="Two">Two</option>
 
             </select>
 
@@ -35,6 +35,10 @@
         </form>
         
     </div>
-</div>
+</div> -->
+
+
+<% /* Displaying Inventory Items */ %>
+<%- grid %>
 
 <script src="/js/script.js"></script>

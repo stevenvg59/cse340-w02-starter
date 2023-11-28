@@ -89,7 +89,20 @@ invCont.registerClassification = async function (req, res, next) {
       errors: null,
     })
   }
+}
 
+/* ***********************************
+ *  Build New Inventory Page
+ * *********************************** */
+invCont.buildNewInventory = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  const grid = await utilities.builAddInventoryView()
+  res.render("./inventory/add-inventory", {
+    title: "Add New Inventory",
+    nav,
+    errors: null,
+    grid
+  })
 }
 
 module.exports = invCont

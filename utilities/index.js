@@ -121,12 +121,76 @@ Util.buildManagementView = async function(){
   grid = '<div class="management-links">'
 
   grid += '<a href="../../inv/addClassification">Add New Classification</a>'
-  grid += '<a href="../../inv/addVehicle">Add New Vehicle</a>' 
+  grid += '<a href="../../inv/addInventory">Add New Vehicle</a>' 
 
   grid += '</div>'
 
   return grid
 }
+
+/* *****************************************
+* Build the Adding New Inventory view HTML
+* ****************************************** */
+Util.builAddInventoryView = async function(){
+  let grid
+
+  let data = await invModel.getClassifications()
+  grid = '<div class="newInventoryForm">'
+  grid += '<div class="form">'
+
+  grid += '<label class="instruction">All fields are required.</label>'
+  grid += '<form id="newInventoryForm" action="/inv/addInventory" method="post">'
+
+  grid += '<label class="bigger" for=classification">Classification</label>'
+  grid += '<select id="classification" name="classification">'
+
+  grid += '<option value="default" selected>Choose a classification</option>'
+
+  data.rows.forEach(item => {
+    grid += '<option value="aaa">' + item.classification_name + '</option>'
+  })
+
+  grid += '</select>'
+
+  grid += '<label>Make</label>'
+  grid += '<input type="text" name="inv_make" id="inv_make" required>'
+
+  grid += '<label>Model</label>'
+  grid += '<input type="text" name="inv_model" id="inv_model" required>'
+
+  grid += '<label>Description</label>'
+  grid += '<textarea></textarea>'
+
+  grid += '<label>Image Path</label>'
+  grid += '<input type="text" name="inv_image" id="inv_image" required>'
+
+  grid += '<label>Thumbnail Path</label>'
+  grid += '<input type="text" name="inv_thumbnail" id="inv_thumbnail" required>'
+
+  grid += '<label>Price</label>'
+  grid += '<input type="text" name="inv_price" id="inv_price" required>'
+
+  grid += '<label>Year</label>'
+  grid += '<input type="text" name="inv_year" id="inv_year" required>'
+
+  grid += '<label>Miles</label>'
+  grid += '<input type="text" name="inv_miles" id="inv_miles" required>'
+
+  grid += '<label>Color</label>'
+  grid += '<input type="text" name="inv_color" id="inv_color" required>'
+
+  grid += '<input type="submit" id="addInventory" value="Add Vehicle">'
+
+  grid += '</form>'
+
+
+  grid += '</div>'
+  grid += '</div>'
+
+  return grid
+}
+
+
 
 /* ****************************************
  * Middleware For Handling Errors

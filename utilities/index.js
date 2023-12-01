@@ -145,7 +145,7 @@ Util.builAddInventoryView = async function(){
 
   grid += '<label>Classification</label>'
 
-  grid += '<select id="classification_id" name="classification_id">'
+  grid += '<select id="classification_id" name="classification_id" required>'
   grid += '<option value="" selected>Choose a classification</option>'
   data.rows.forEach(item => {
     grid += '<option value="' + item.classification_id + '">' + item.classification_name + '</option>'

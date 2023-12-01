@@ -69,6 +69,7 @@ invCont.registerClassification = async function (req, res, next) {
   const grid = await utilities.buildManagementView()
   const { classification_name } = req.body
   const regResult = await invModel.addClassification(classification_name)
+  console.log(classification_name)
 
   if (regResult) {
     req.flash(
@@ -103,6 +104,39 @@ invCont.buildNewInventory = async function (req, res, next) {
     errors: null,
     grid
   })
+}
+
+/* ***********************************
+ *  Registering a new classification
+ * *********************************** */
+invCont.addInventory = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  const grid = await utilities.buildManagementView()
+  const { inv_make, inv_model, inv_year, inv_description, inv_image,inv_thumbnail, inv_price, inv_miles, inv_color, classification_id } = req.body
+  const price = parseInt(inv_price)
+  const miles = parseInt(inv_miles)
+  const class_id = parseInt(classification_id)
+  const regResult = await invModel.addInventory(inv_make, inv_model, inv_year, inv_description, inv_image,inv_thumbnail, price, miles, inv_color, class_id)
+
+  if (regResult) {
+    req.flash(
+      "green",
+      `Congratulations, you\'ve added a new Vehicle!`
+    )
+    res.status(201).render("./inventory/management", {
+      title: "Vehicle Management",
+      nav,
+      grid,
+      errors: null,
+    })
+  } else {
+    req.flash("notice", "Sorry, the registration failed. Try again.")
+    res.status(501).render("./inventory/add-inventory", {
+      title: "Add New Inventory",
+      nav,
+      errors: null,
+    })
+  }
 }
 
 module.exports = invCont

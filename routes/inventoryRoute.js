@@ -25,4 +25,6 @@ router.post(
 // Route for adding a new inventory (vehicle)
 router.get("/addInventory", utilities.handleErrors(invController.buildNewInventory))
 
+router.post("/addInventory", utilities.handleErrors(invController.addInventory))
+
 module.exports = router;

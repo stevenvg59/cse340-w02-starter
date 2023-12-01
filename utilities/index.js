@@ -141,40 +141,41 @@ Util.builAddInventoryView = async function(){
   grid += '<label class="instruction">All fields are required.</label>'
   grid += '<form id="newInventoryForm" action="/inv/addInventory" method="post">'
 
-  grid += '<label class="bigger" for=classification">Classification</label>'
-  grid += '<select id="classification" name="classification">'
+  grid += '<label class="bigger">New Vehicle</label>'
 
-  grid += '<option value="default" selected>Choose a classification</option>'
+  grid += '<label>Classification</label>'
 
+  grid += '<select id="classification_id" name="classification_id">'
+  grid += '<option value="" selected>Choose a classification</option>'
   data.rows.forEach(item => {
-    grid += '<option value="aaa">' + item.classification_name + '</option>'
+    grid += '<option value="' + item.classification_id + '">' + item.classification_name + '</option>'
   })
 
   grid += '</select>'
 
   grid += '<label>Make</label>'
-  grid += '<input type="text" name="inv_make" id="inv_make" required>'
+  grid += '<input type="text" name="inv_make" id="inv_make" required placeholder="Min of 3 characters">'
 
   grid += '<label>Model</label>'
-  grid += '<input type="text" name="inv_model" id="inv_model" required>'
+  grid += '<input type="text" name="inv_model" id="inv_model" required placeholder="Min of 3 characters">'
 
   grid += '<label>Description</label>'
-  grid += '<textarea></textarea>'
+  grid += '<textarea type="text" id="inv_description" name="inv_description" required placeholder="Enter a description"></textarea>'
 
   grid += '<label>Image Path</label>'
-  grid += '<input type="text" name="inv_image" id="inv_image" required>'
+  grid += '<input type="text" name="inv_image" id="inv_image" value="/images/vehicles/no-image.png" readonly>'
 
   grid += '<label>Thumbnail Path</label>'
-  grid += '<input type="text" name="inv_thumbnail" id="inv_thumbnail" required>'
+  grid += '<input type="text" name="inv_thumbnail" id="inv_thumbnail" value="/images/vehicles/no-image.png" readonly>'
 
   grid += '<label>Price</label>'
-  grid += '<input type="text" name="inv_price" id="inv_price" required>'
+  grid += '<input type="text" name="inv_price" id="inv_price" required placeholder="decimal or integer">'
 
   grid += '<label>Year</label>'
-  grid += '<input type="text" name="inv_year" id="inv_year" required>'
+  grid += '<input type="text" name="inv_year" id="inv_year" required placeholder="4-digit year">'
 
   grid += '<label>Miles</label>'
-  grid += '<input type="text" name="inv_miles" id="inv_miles" required>'
+  grid += '<input type="text" name="inv_miles" id="inv_miles" required placeholder="Digits only">'
 
   grid += '<label>Color</label>'
   grid += '<input type="text" name="inv_color" id="inv_color" required>'

@@ -267,7 +267,7 @@ h1, h2, h3 {
 
 /* STYLING LOGIN VIEW */
 
-.login-container, .newClassificationForm{
+.login-container, .newClassificationForm, .newInventoryForm {
   border: 1px solid black;
   max-width: 500px;
   margin: 20px auto;
@@ -288,10 +288,8 @@ form label, form input, form button {
   display: block;
   padding: 5px;
   margin: 3px;
-}
-
-form input {
-  width: 400px;
+  width: 400px; 
+  font-size: 1.2rem;
 }
 
 .signup span {
@@ -341,4 +339,24 @@ input:required:invalid, input:focus:invalid {
 
 .instruction {
   font-style: italic;
+}
+
+form textarea {
+  margin-left: 3px;
+  width: 90%;
+  height: 100px;
+  font-family: inherit;
+  font-size: 1.2rem;
+}
+
+select {
+  padding: 5px;
+  margin-left: 3px;
+  font-size: 1.2rem;
+}
+
+input[type="submit"]{
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-top: 30px;
 }

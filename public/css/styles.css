@@ -217,7 +217,7 @@ h1, h2, h3 {
   display: inherit;
 }
 
-.green {
+.green li {
   color: #2d761f;
   font-style: italic;
   display: inherit;

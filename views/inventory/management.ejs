@@ -6,7 +6,15 @@
 } %>
 
 <% /* A Message Block */ %>
-<% messages() %>
+<!-- This is ready for flash messages for managemente page-->
+<%- messages() %>
+<% if (errors) { %>
+    <ul class="notice">
+    <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+    <%  }) %>
+    </ul>
+<% } %>
 
 <% /* Displaying Inventory Items */ %>
 <%- grid %>

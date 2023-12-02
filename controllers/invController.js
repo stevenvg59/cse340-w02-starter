@@ -70,7 +70,6 @@ invCont.registerClassification = async function (req, res, next) {
   const grid = await utilities.buildManagementView()
   const { classification_name } = req.body
   const regResult = await invModel.addClassification(classification_name)
-  console.log(classification_name)
 
   if (regResult) {
     req.flash(

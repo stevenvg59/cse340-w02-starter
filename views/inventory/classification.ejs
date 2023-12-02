@@ -8,13 +8,7 @@
 <% /* A Message Block */ %>
 <!-- This is ready for flash messages for classification-->
 <%- messages() %>
-<% if (errors) { %>
-    <ul class="notice">
-    <% errors.array().forEach(error => { %>
-        <li><%= error.msg %></li>
-    <%  }) %>
-    </ul>
-<% } %>
+
 
 <% /* Displaying Inventory Items */ %>
 <%- grid %>

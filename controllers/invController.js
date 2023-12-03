@@ -66,10 +66,11 @@ invCont.buildNewClassification = async function (req, res, next) {
  *  Registering a new classification
  * *********************************** */
 invCont.registerClassification = async function (req, res, next) {
-  let nav = await utilities.getNav()
+  
   const grid = await utilities.buildManagementView()
   const { classification_name } = req.body
   const regResult = await invModel.addClassification(classification_name)
+  let nav = await utilities.getNav()
 
   if (regResult) {
     req.flash(
@@ -107,7 +108,7 @@ invCont.buildNewInventory = async function (req, res, next) {
 }
 
 /* ***********************************
- *  Registering a new classification
+ *  Registering a new Vehicle
  * *********************************** */
 invCont.addInventory = async function (req, res, next) {
   let nav = await utilities.getNav()

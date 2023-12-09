@@ -3,6 +3,9 @@ const utilities = require("../utilities")
 const accountModel = require("../models/account-model")
 const bcrypt = require("bcryptjs")
 
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
+
 /* ****************************************
 *  Deliver login view
 * *************************************** */
@@ -78,42 +81,80 @@ async function registerAccount(req, res) {
 /* ****************************************
 *  Landing Homepage after login
 * *************************************** */
-async function buildHomepage(req, res, next) {
+// async function buildHomepage(req, res, next) {
+//   let nav = await utilities.getNav()
+//   const { account_email, account_password } = req.body
+//   const loginResult = await accountModel.checkPasswordMatches(account_email, account_password)
+
+//   if (accountModel.checkExistingEmail(account_email)){
+//     if (loginResult.account_password == account_password){
+//       req.flash(
+//         "green",
+//         `Welcome ${loginResult.account_firstname}. This is your homepage.`
+//       )
+//       res.render("index", {
+//         title: "Home", 
+//         nav,
+//         errors: null,
+//       })
+//     } else {
+//       req.flash("notice", "Sorry, login failed. Enter a valid password")
+//       res.status(501).render("account/login", {
+//         title: "Login",
+//         nav,
+//         errors: null,
+//       })
+//     }
+//   } else {
+//     req.flash("notice", "Sorry, login failed. Enter a valid username")
+//       res.status(501).render("account/login", {
+//         title: "Login",
+//         nav,
+//         errors: null,
+//       })
+//   }
+// }
+
+/* ****************************************
+ *  Process login request
+ * ************************************ */
+async function accountLogin(req, res) {
   let nav = await utilities.getNav()
   const { account_email, account_password } = req.body
-  const loginResult = await accountModel.checkPasswordMatches(account_email, account_password)
-
-  if (accountModel.checkExistingEmail(account_email)){
-    if (loginResult.account_password == account_password){
-      req.flash(
-        "green",
-        `Welcome ${loginResult.account_firstname}. This is your homepage.`
-      )
-      res.render("index", {
-        title: "Home", 
-        nav,
-        errors: null,
-      })
-    } else {
-      req.flash("notice", "Sorry, login failed. Enter a valid password")
-      res.status(501).render("account/login", {
-        title: "Login",
-        nav,
-        errors: null,
-      })
-    }
-  } else {
-    req.flash("notice", "Sorry, login failed. Enter a valid username")
-      res.status(501).render("account/login", {
-        title: "Login",
-        nav,
-        errors: null,
-      })
+  const accountData = await accountModel.getAccountByEmail(account_email)
+  if (!accountData) {
+    req.flash("notice", "Please check your credentials and try again.")
+    res.status(400).render("account/login", {
+      title: "Login",
+      nav,
+      errors: null,
+      account_email,
+    })
+    return
   }
+  try {
+    console.log("Error here")
+    if (await bcrypt.compare(account_password, accountData.account_password)) {
+      delete accountData.account_password
+      console.log("Error here")
+      const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 * 1000 })
+      res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 })
+      return res.redirect("/account")
+    }
+  } catch (error) {
+    console.log("Not logged in")
+    return new Error('Access Forbidden')
+  }
+ }
 
-  
-  
-}
+ async function accountHomepage(req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("account/management", {
+    title: "Account Management",
+    nav,
+    errors: null,
+  })
+ }
 
 
-module.exports = { buildLogin, buildRegister, registerAccount, buildHomepage }
+module.exports = { buildLogin, buildRegister, registerAccount, /*buildHomepage,*/ accountLogin, accountHomepage }

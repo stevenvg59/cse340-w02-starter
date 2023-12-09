@@ -29,10 +29,9 @@ validate.checkClassificationData = async (req, res, next) => {
     const { classification_name } = req.body
     let errors = []
     errors = validationResult(req)
-    console.log(errors)
     if (!errors.isEmpty()) {
       let nav = await utilities.getNav()
-      res.render("inv/addClassification", {
+      res.render("./inventory/add-classification", {
         errors,
         title: "Add New Classification",
         nav,
@@ -116,15 +115,17 @@ validate.addInventoryRules = () => {
  * **************************************** */
 validate.checkInventoryData = async (req, res, next) => {
     const { inv_make, inv_model, inv_description, inv_price, inv_year, inv_miles, inv_color } = req.body
+    const grid = await utilities.builAddInventoryView()
     let errors = []
     errors = validationResult(req)
     //console.log(errors[0].msg)
     if (!errors.isEmpty()) {
       let nav = await utilities.getNav()
-      res.render("inv/addClassification", {
+      res.render("./inventory/add-inventory", {
         errors,
-        title: "Add New Classification",
+        title: "Add New Inventory",
         nav,
+        grid,
         inv_make, 
         inv_model, 
         inv_description, 

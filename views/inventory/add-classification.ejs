@@ -23,7 +23,7 @@
         <form id="newClassificationForm" action="/inv/addClassification" method="post">
             <label class="bigger">Classification Name</label>
             <label class="instruction">Name must be alphabetic characters only.</label>
-            <input type="text" name="classification_name" id="classification_name" required>
+            <input type="text" name="classification_name" id="classification_name" required value="<%= locals.classification_name %>">
             <input type="submit" id="addClassification" value="Add Classification">
         </form>
         

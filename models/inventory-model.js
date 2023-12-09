@@ -57,17 +57,6 @@ async function addInventory(inv_make, inv_model, inv_year, inv_description, inv_
     const sql = 'INSERT INTO inventory (inv_make, inv_model, inv_year, inv_description, inv_image,inv_thumbnail, inv_price, inv_miles, inv_color, classification_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)'
     return await pool.query(sql, [inv_make, inv_model, inv_year, inv_description, inv_image, inv_thumbnail, price, miles, inv_color, classification_id])
   } catch (error) {
-    console.log("error here")
-    console.log(inv_make)
-    console.log(inv_model)
-    console.log(inv_year)
-    console.log(inv_description)
-    console.log(inv_image)
-    console.log(inv_thumbnail)
-    console.log(price)
-    console.log(miles)
-    console.log(inv_color)
-    console.log(classification_id)
     return error.message
   }
 }

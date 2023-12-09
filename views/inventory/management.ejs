@@ -17,4 +17,17 @@
 <% } %>
 
 <% /* Displaying Inventory Items */ %>
-<%- grid %>
+<ul>
+    <list><a href="/inv/addClassification/" title="Click to add a new vehicle classification">Add New Classification</a></list>
+    <list><a href="/inv/addInventory/" title="Click to add a new vehicle">Add New Vehicle</a></list>
+</ul>
+
+<h2>Manage Inventory</h2>
+<p>Choose a classification to see those inventory items.</p>
+<%- classificationSelect %>
+
+<table id="inventoryDisplay"></table>
+
+<noscript>Javascript must be enabled to use this page.</noscript>
+
+<script src="../../public/js/script.js"></script>

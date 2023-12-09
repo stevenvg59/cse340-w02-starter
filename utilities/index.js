@@ -116,22 +116,6 @@ Util.buildVehicleDetailView = async function(data) {
 }
 
 /* *****************************************
-* Build the vehicle management view HTML
-* ****************************************** */
-Util.buildManagementView = async function(){
-  let grid
-
-  grid = '<div class="management-links">'
-
-  grid += '<a href="../../inv/addClassification">Add New Classification</a>'
-  grid += '<a href="../../inv/addInventory">Add New Vehicle</a>' 
-
-  grid += '</div>'
-
-  return grid
-}
-
-/* *****************************************
 * Build the Adding New Inventory view HTML
 * ****************************************** */
 Util.builAddInventoryView = async function(){

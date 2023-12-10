@@ -178,6 +178,18 @@ Util.builAddInventoryView = async function(){
   return grid
 }
 
+Util.buildClassificationList = async function(){
+  let grid
+  let data = await invModel.getClassifications()
+  grid = '<select id="classificationList" name="classificationList" required>'
+  grid += '<option value="" selected>Choose a classification</option>'
+  data.rows.forEach(item => {
+    grid += '<option value="' + item.classification_id + '">' + item.classification_name + '</option>'
+  })
+  grid += '</select>'
+
+  return grid
+}
 
 
 /* ****************************************

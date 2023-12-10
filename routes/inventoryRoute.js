@@ -32,6 +32,11 @@ router.post(
     "/addInventory",
     invValidate.addInventoryRules(),
     invValidate.checkInventoryData,
-    utilities.handleErrors(invController.addInventory))
+    utilities.handleErrors(invController.addInventory)
+);
+
+// Route for getting inventory by classification id
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
 
 module.exports = router;

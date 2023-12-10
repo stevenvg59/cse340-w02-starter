@@ -1,0 +1,64 @@
+<% /* The Content Heading */ %>
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } else {
+    res.redirect('/')
+} %>
+
+<!-- This is ready for flash messages for new inventory -->
+<%- messages() %>
+<% if (errors) { %>
+    <ul class="notice">
+    <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+    <%  }) %>
+    </ul>
+<% } %>
+
+<% /* Displaying Inventory Items */ %>
+
+<div class="newInventoryForm">
+    <div class="form">
+        <label class="instruction">All fields are required.</label>
+        <form id="editInventoryForm" action="/inv/update" method="post">
+            <label class="bigger">New Vehicle</label>
+            <label>Classification</label>
+
+            <%- classificationSelect %>
+
+            <label>Make</label>
+            <input type="text" name="inv_make" id="inv_make" required placeholder="Min of 3 characters" value="<%- inv_make%>">
+
+            <label>Model</label>
+            <input type="text" name="inv_model" id="inv_model" required placeholder="Min of 3 characters" value="<%- inv_model%>">
+
+            <label>Description</label>
+            <textarea type="text" id="inv_description" name="inv_description" required placeholder="Enter a description"><%- inv_description%></textarea>
+
+            <label>Image Path</label>
+            <input type="text" name="inv_image" id="inv_image" value="<%- inv_image%>" readonly>
+
+            <label>Thumbnail Path</label>
+            <input type="text" name="inv_thumbnail" id="inv_thumbnail" value="<%- inv_thumbnail%>" readonly>
+
+            <label>Price</label>
+            <input type="text" name="inv_price" id="inv_price" required placeholder="decimal or integer" value="<%- inv_price%>">
+
+            <label>Year</label>
+            <input type="text" name="inv_year" id="inv_year" required placeholder="4-digit year" value="<%- inv_year%>">
+
+            <label>Miles</label>
+            <input type="text" name="inv_miles" id="inv_miles" required placeholder="Digits only" value="<%- inv_miles%>">
+
+            <label>Color</label>
+            <input type="text" name="inv_color" id="inv_color" required value="<%- inv_color%>">
+
+            <input type="submit" name="submit" value="Update Vehicle">
+
+            <input type="hidden" name="inv_id"
+            <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+            <% } %>>
+
+        </form>
+    </div>
+</div>

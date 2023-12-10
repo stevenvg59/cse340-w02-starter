@@ -38,5 +38,8 @@ router.post(
 // Route for getting inventory by classification id
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
+// Route for editing a vehicle by inventory id
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
+
 
 module.exports = router;
